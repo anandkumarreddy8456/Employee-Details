@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+</head>
+<body>
+	<div align="center">
+	<div class="container">
+	<div align="center"><h1>Employee Details</h1></div>
+	<div >
+		<h3><a th:href="@{/Employee/addemployee}">Add New Employee</a>
+	</h3></div>
+	<div >
+	<div class="col-sm-5" align="center">
+		<div class="pannel-body" align="center">
+			<table class="table">
+				<thead class="th:dark">
+					<th>Employee Id</th>
+					<th>Employee Name</th>
+					<th>Employee Salary</th>
+					<th>Employee Dept</th>
+					<th>Edit Details</th>
+					<th>Delete Employee</th>
+					</thead>
+					<tbody>
+					<tr th:each="employee :${allemployee}">
+					<td th:text="${employee.id}">Employee Id</td>
+					<td th:text="${employee.name}">Employee Name</td>
+					<td th:text="${employee.salary}">Employee Salary</td>
+					<td th:text="${employee.dept}">Employee Dept</td>
+					<td>
+						<a th:href="@{'/Employee/edit/' +${employee.id}}">Edit</a>
+					</td>
+					<td>
+						<a th:href="@{'/Employee/delete/' +${employee.id}}">Delete</a>
+					</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+</body>
+</html>
